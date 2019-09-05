@@ -17,3 +17,7 @@ sumDigits [] = 0
 sumDigits (x:xs)
   | x < 10 = x + sumDigits xs
   | otherwise = x `mod` 10 + x `div` 10 + sumDigits xs
+validate :: Integer -> Bool
+validate n
+  | n >= 1000000000000000 && n <= 9999999999999999 = sumDigits(doubleEveryOther(toDigits(n))) `mod` 10 == 0
+  | otherwise = False
